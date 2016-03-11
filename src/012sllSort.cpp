@@ -22,5 +22,46 @@ struct node {
 };
 
 void sll_012_sort(struct node *head){
+	int count0 = 0, count1 = 0, count2 = 0;
+	struct node *traversal = head;
+	while (traversal != NULL)
+	{
+		if (traversal->data == 0)
+			count0++;
+		else if (traversal->data == 1)
+			count1++;
+		else
+			count2++;
+		traversal = traversal->next;
+	}
+	//if all the data is 0
+	if (count0>0 && count1 == 0 && count2 == 0)
+	{
+
+	}
+	else//all the other cases
+	{
+		traversal = head;
+		while (traversal != NULL)
+		{
+			if (count0>0)
+			{
+				traversal->data = 0;
+				count0--;
+			}
+			else if (count1>0)
+			{
+				traversal->data= 1;
+				count1--;
+			}
+			else if (count2>0)
+			{
+				traversal->data= 2;
+				count2--;
+			}
+
+			traversal = traversal->next;
+		}
+	}
 	
 }
